@@ -1,0 +1,32 @@
+.buttons {
+  max-width: 800px;
+  margin: 20px auto;
+  button {
+    margin: 0 5px;
+  }
+}
+.NextDays {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  .NextDays_wrapper {
+    display: flex;
+    overflow: scroll;
+  }
+  .NextDays__oneDay {
+    background: rgba(250, 250, 250, 0.8);
+    border-radius: 4px;
+    padding: 10px 30px 10px 10px;
+    margin-right: 10px;
+    img {
+      height: 40px;
+      width: 40px;
+      margin: 10px 0;
+    }
+    .NextDays__date,
+    .NextDays__info {
+      color: #939cb0;
+      font-size: 12px;
+    }
+  }
+}

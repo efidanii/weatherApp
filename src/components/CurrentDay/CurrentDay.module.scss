@@ -1,0 +1,52 @@
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  .currentDay__Right {
+    width: 60%;
+    background: rgba(250, 250, 250, 0.8);
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    .currentDay__Right_Info {
+      display: flex;
+      margin-top: 10px;
+      align-items: center;
+      img {
+        background: #fff;
+        margin-right: 10px;
+        border-radius: 50%;
+        padding: 10px;
+      }
+      .currentDay__Right_Name {
+        font-size: 14px;
+        color: #939cb0;
+      }
+      .currentDay__Right_Value {
+        font-size: 14px;
+      }
+    }
+  }
+  .currentDay__Left {
+    width: 35%;
+    background: rgba(250, 250, 250, 0.8);
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .currentTemperature {
+      font-size: 70px;
+      color: #3772c5;
+    }
+    img {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+    }
+  }
+}

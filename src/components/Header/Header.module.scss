@@ -1,0 +1,24 @@
+.header {
+  margin: 20px 0;
+  .wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    .header__right,
+    .header__left {
+      display: flex;
+      align-items: center;
+    }
+    .header__title {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: rgb(250, 250, 250);
+      margin-left: 10px;
+    }
+    img {
+      height: 100%;
+    }
+  }
+}
