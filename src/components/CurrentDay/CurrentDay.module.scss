@@ -50,3 +50,16 @@
     }
   }
 }
+
+@media screen and (max-width: 680px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .currentDay__Right,
+  .currentDay__Left {
+    width: 100% !important;
+  }
+  .currentDay__Right {
+    margin-top: 20px;
+  }
+}

@@ -5,8 +5,11 @@ import temp from "./images/temp.svg";
 import pressure from "./images/pressure.svg";
 import precipitation from "./images/precipitation.svg";
 import wind from "./images/wind.svg";
+import { useSelector } from "react-redux";
 
 export const CurrentDay = () => {
+  const weatherArr = useSelector((state) => state.weather.value);
+  console.log(weatherArr);
   const currentDayIfo = [
     {
       icon: temp,
