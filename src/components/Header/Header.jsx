@@ -13,9 +13,9 @@ export const Header = () => {
     }),
   };
   const options = [
-    { value: "Стамбул", label: "Стамбул" },
-    { value: "Москва", label: "Москва" },
-    { value: "Батуми", label: "Батуми" },
+    { value: "istanbul", label: "Стамбул" },
+    { value: "moscow", label: "Москва" },
+    { value: "batumi", label: "Батуми" },
   ];
 
   return (
@@ -28,7 +28,7 @@ export const Header = () => {
         <div className={style.header__right}>
           <Select
             options={options}
-            defaultValue={options[0]}
+            defaultValue={options[1]}
             styles={optionsStyle}
           />
         </div>

@@ -9,6 +9,7 @@ import sun from "../WetherIcons/sun.svg";
 export const NextDays = () => {
   const otherDays = [
     {
+      id: "1",
       title: "Сегодня",
       date: "10 марта",
       icon: sun,
@@ -23,7 +24,7 @@ export const NextDays = () => {
         <div className={style.NextDays_wrapper}>
           {otherDays.map((item) => {
             return (
-              <div className={style.NextDays__oneDay}>
+              <div className={style.NextDays__oneDay} key={item.id}>
                 <div className={style.NextDays__title}>{item.title}</div>
                 <div className={style.NextDays__date}>{item.date}</div>
                 <div className={style.NextDays__icon}>
