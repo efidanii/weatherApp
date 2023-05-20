@@ -7,9 +7,9 @@
 }
 
 .NextDays {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  width: 700px;
+  margin: 20px auto;
+
   display: flex;
   .NextDays_wrapper {
     display: flex;
@@ -26,13 +26,30 @@
   }
   .NextDays__oneDay {
     background: rgba(250, 250, 250, 0.8);
+    min-width: 118px;
+    display: flex;
+    flex-direction: column;
     border-radius: 4px;
-    padding: 10px 30px 10px 10px;
+    padding: 10px 20px;
     margin-right: 10px;
     img {
-      height: 40px;
-      width: 40px;
-      margin: 10px 0;
+      height: 60px;
+      width: 60px;
+    }
+    .NextDays__temperature {
+      display: flex;
+      align-items: center;
+      .NextDays__temperature_max {
+        font-size: 20px;
+      }
+      .NextDays__temperature_min {
+        font-size: 18px;
+        color: #939cb0;
+        margin-left: 5px;
+      }
+    }
+    .NextDays__dayOfWeek {
+      font-size: 20px;
     }
     .NextDays__date,
     .NextDays__info {
@@ -42,6 +59,11 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  .NextDays {
+    width: 350px;
+  }
+}
 @media screen and (max-width: 400px) {
   button {
     font-size: 15px !important;

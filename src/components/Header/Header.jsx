@@ -1,22 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./Header.module.scss";
 import logo from "./logo.png";
-import Select from "react-select";
+import { FaSearch } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { NewCity, fetchOneDayWeather } from "../../store/weatherSlice";
 
 export const Header = () => {
-  const optionsStyle = {
-    control: (baseStyles, state) => ({
-      ...baseStyles,
-      border: "none",
-      width: "150px",
-      background: "rgba(250, 250, 250, 0.8)",
-    }),
+  const [valueInputAdd, setValueAdd] = useState("");
+  const dispatch = useDispatch();
+  const addNewCity = () => {
+    dispatch(NewCity(valueInputAdd));
+    dispatch(fetchOneDayWeather(valueInputAdd));
+    setValueAdd("");
   };
-  const options = [
-    { value: "istanbul", label: "Стамбул" },
-    { value: "moscow", label: "Москва" },
-    { value: "batumi", label: "Батуми" },
-  ];
 
   return (
     <header className={style.header}>
@@ -26,11 +22,15 @@ export const Header = () => {
           <div className={style.header__title}>Weather App</div>
         </div>
         <div className={style.header__right}>
-          <Select
-            options={options}
-            defaultValue={options[1]}
-            styles={optionsStyle}
+          <input
+            type="text"
+            placeholder="Введите город"
+            value={valueInputAdd}
+            onChange={(e) => setValueAdd(e.target.value)}
           />
+          <button onClick={() => dispatch(addNewCity)}>
+            <FaSearch />
+          </button>
         </div>
       </div>
     </header>

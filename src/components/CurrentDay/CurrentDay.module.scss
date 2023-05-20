@@ -43,10 +43,14 @@
       font-size: 70px;
       color: #3772c5;
     }
+    .currentWeather {
+      font-size: 20px;
+    }
     img {
       position: absolute;
-      top: 30px;
-      right: 30px;
+      top: 0px;
+      right: 0px;
+      height: 80px;
     }
   }
 }
@@ -61,5 +65,10 @@
   }
   .currentDay__Right {
     margin-top: 20px;
+  }
+  .currentDay__Left {
+    img {
+      height: 120px !important;
+    }
   }
 }

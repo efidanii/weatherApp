@@ -1,44 +1,41 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchWeatherAction = createAsyncThunk(
-  "weather/fetch",
-  async (payload, { rejectWithValue, getState, dispatch }) => {
-    try {
-      const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${payload}&appid=bf353cc2866f00f966aa833860c7f197`
-      );
-      return data;
-    } catch (error) {
-      if (!error?.response) {
-        throw error;
-      }
-      return rejectWithValue(error?.response?.data);
-    }
+export const fetchOneDayWeather = createAsyncThunk(
+  "oneDayWeather/fetch",
+  async function (payload) {
+    const response = await fetch(
+      `http://api.weatherapi.com/v1/forecast.json?key=bfbd51342c0748f3b6d123058232005&q=${payload}&days=30&aqi=no&alerts=no`
+    );
+    const data = await response.json();
+    return data;
   }
 );
 
-export const weatherSlice = createSlice({
-  name: "weather",
-  initialState: {},
-  extraReducers: (builder) => {
-    //pending
-    builder.addCase(fetchWeatherAction.pending, (state, action) => {
-      state.loading = true;
-    });
-    //fulfilled
-    builder.addCase(fetchWeatherAction.fulfilled, (state, action) => {
-      state.weather = action?.payload;
-      state.loading = false;
-      state.error = undefined;
-    });
-    //rejected
-    builder.addCase(fetchWeatherAction.rejected, (state, action) => {
-      state.loading = false;
-      state.weather = undefined;
-      state.error = action?.payload;
-    });
+const oneDayWeatherSlice = createSlice({
+  name: "oneDayWeather",
+  initialState: {
+    city: "Майами",
+    city2: "",
+    oneDayWeatherArr: {},
+    status: null,
+    error: null,
+  },
+  reducers: {
+    NewCity(state, action) {
+      state.city = action.payload;
+    },
+  },
+  extraReducers: {
+    [fetchOneDayWeather.pending]: (state) => {
+      state.status = "loading";
+      state.error = null;
+    },
+    [fetchOneDayWeather.fulfilled]: (state, action) => {
+      state.loading = "resolved";
+      state.oneDayWeatherArr = action.payload;
+    },
+    [fetchOneDayWeather.rejected]: (state, action) => {},
   },
 });
-
-export default weatherSlice.reducer;
+export const { NewCity } = oneDayWeatherSlice.actions;
+export default oneDayWeatherSlice.reducer;

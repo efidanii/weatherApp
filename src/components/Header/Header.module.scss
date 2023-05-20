@@ -8,6 +8,7 @@
     height: 30px;
     .header__right,
     .header__left {
+      position: relative;
       display: flex;
       align-items: center;
     }
@@ -19,6 +20,23 @@
     }
     img {
       height: 100%;
+    }
+    input {
+      background: rgba(250, 250, 250, 0.8);
+      border: none;
+      border-radius: 5px;
+      max-width: 170px;
+      padding-right: 20px;
+      padding-left: 10px;
+    }
+    input:focus {
+      outline: none;
+    }
+    button {
+      position: absolute;
+      background: none;
+      border: none;
+      right: 0;
     }
   }
 }
