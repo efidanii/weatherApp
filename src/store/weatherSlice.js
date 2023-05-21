@@ -14,7 +14,7 @@ export const fetchOneDayWeather = createAsyncThunk(
 const oneDayWeatherSlice = createSlice({
   name: "oneDayWeather",
   initialState: {
-    city: "Майами",
+    city: "Батуми",
     city2: "",
     oneDayWeatherArr: {},
     status: null,
